@@ -1,21 +1,59 @@
 // 퀴즈 데이터
 const quizData = [
     {
-        type: "multiple",
-        question: "HTML에서 가장 큰 제목을 나타내는 태그는 무엇인가요?",
-        options: ["<heading>", "<h6>", "<h1>", "<title>"],
-        answer: 2
-    },
-    {
-        type: "multiple",
-        question: "CSS에서 글자 색상을 바꾸는 속성은 무엇인가요?",
-        options: ["font-color", "text-color", "color", "background-color"],
-        answer: 2
+        type: "short",
+        question: "나의 생일은? (숫자 8자리로 입력. 예 : 20000209)",
+        answer: "20031117"
     },
     {
         type: "short",
-        question: "웹 페이지의 구조를 뼈대처럼 잡아주는 언어의 이름은 무엇인가요? (영문 4글자)",
-        answer: "HTML"
+        question: "나의 전화번호는? (숫자 11자리로 입력. 예 : 01022554160)",
+        answer: "01074305324"
+    },
+    {
+        type: "short",
+        question: "우리가 처음 사귀기로 한 날짜는? (숫자 8자리로 입력)",
+        answer: "20250801"
+    },
+    {
+        type: "multiple",
+        question: "내가 싫어하는 음식은?",
+        options: ["마라탕", "우육면", "오돌뼈", "오이"],
+        answer : 2
+    },
+    {
+        type: "multiple",
+        question: "내가 외출 준비할 때 가장 오래 걸리는 단계는?",
+        options: ["씻기", "옷 고르기", "화장하기", "짐챙기기"],
+        answer : 1
+    },
+    {
+        type: "multiple",
+        question: "내가 세상에서 제일 무서워하는 것은?",
+        options: ["벌레", "귀신", "오빠의 침묵", "높은 곳"],
+        answer : 1
+    },
+    {
+        type: "short",
+        question: "내가 세상에서 가장 자신 있게 만들 수 있는 요리는?",
+        answer: "에그인헬"
+    },
+    {
+        type: "multiple",
+        question: "내가 가장 좋아하는 연락 수단은?",
+        options: ["카톡", "통화", "영상통화", "만나서 말하기"],
+        answer : 3
+    },
+    {
+        type: "short",
+        question: "내가 생각하는 나의 매력 포인트 1위는 어디일까?",
+        answer: "눈"
+    },
+    {
+        type: "multiple",
+        question: "내가 편의점에서 딱 하나만 고를 수 있다면?",
+        options: ["뿌셔뿌셔", "자일리톨껌", "불닭볶음면", "여신마라샹궈"],
+        answer : 3
     }
 ];
 
@@ -44,6 +82,8 @@ const optionsContainer = document.querySelector("#options");
 const shortAnswerContainer = document.querySelector("#short-answer-container");
 const shortAnswerInput = document.querySelector("#short-answer-input");
 const submitAnswerBtn = document.querySelector("#submit-answer-btn");
+const finalMessage = document.querySelector("#final-message");
+const sendMessageBtn = document.querySelector("#send-message-btn");
 
 // 문제를 화면에 표시하는 함수
 function showQuestion() {
@@ -150,13 +190,13 @@ function showResult() {
     let percentage = (score / quizData.length) * 100
 
     if (percentage === 100) {
-        resultMessage.textContent = "완벽합니다! 천재 아닌가요?"
+        resultMessage.textContent = "100점 만점에 100점! 💯 나를 너무 잘 알아서 감동이야 ❤️"
     } else if (percentage >= 80) {
-        resultMessage.textContent = "훌륭합니다! 거의 다 맞혔네요!"
+        resultMessage.textContent = "아쉽게 만점은 놓쳤지만 합격 목걸이는 쥐어드립니다~ 🏅"
     } else if (percentage >= 60) {
-        resultMessage.textContent = "잘했습니다! 조금만 더 복습하면 완벽해질 거예요."
+        resultMessage.textContent = "혹시 찍어서 맞춘 건 아니겠지?🥺 틈틈이 복습하도록!"
     } else {
-        resultMessage.textContent = "괜찮습니다! 다시 풀어보면 분명 더 잘할 수 있을 거예요."
+        resultMessage.textContent = "아래 입력창에 해명문 100자 이상 작성할 것 📝🔥"
     }
 }
 
@@ -236,4 +276,51 @@ shortAnswerInput.addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
         submitAnswerBtn.click();
     }
+});
+
+sendMessageBtn.addEventListener("click", function() {
+    const message = finalMessage.value;
+    
+    // 빈칸 검사
+    if (message.trim() === "") {
+        alert("메시지를 입력해주세요!");
+        return;
+    }
+
+    // 🚨 여기에 나만의 Formspree 주소를 넣어야 합니다 (아래 4번 설명 참고)
+    const formspreeUrl = "https://formspree.io/f/xaqlnlyl"; 
+
+    // 전송 중 상태 표시
+    sendMessageBtn.textContent = "전송 중...";
+    sendMessageBtn.disabled = true;
+
+    // 데이터 전송
+    fetch(formspreeUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            // 이메일로 받을 내용 (점수도 같이 보내면 재밌어요!)
+            퀴즈점수: `${score}점`,
+            남긴메시지: message
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("메시지가 성공적으로 전송되었습니다! ❤️");
+            finalMessage.value = ""; // 입력창 비우기
+            sendMessageBtn.textContent = "전송 완료";
+        } else {
+            alert("전송에 실패했습니다. 다시 시도해주세요.");
+            sendMessageBtn.textContent = "메시지 보내기";
+            sendMessageBtn.disabled = false;
+        }
+    })
+    .catch(error => {
+        alert("인터넷 연결을 확인해주세요.");
+        sendMessageBtn.textContent = "메시지 보내기";
+        sendMessageBtn.disabled = false;
+    });
 });

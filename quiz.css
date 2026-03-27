@@ -219,3 +219,57 @@ h1 {
 #submit-answer-btn:hover {
     background-color: #27ae60;
 }
+
+/* --- 마지막 메시지 입력창 스타일 --- */
+#message-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+#message-container h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #eee;
+}
+
+#final-message {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    background-color: #0f3460;
+    color: #eee;
+    font-size: 16px;
+    font-family: inherit;
+    resize: vertical; /* 위아래로만 크기 조절 가능하게 */
+}
+
+#final-message:focus {
+    outline: none;
+    border-color: #e94560;
+}
+
+#send-message-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3498db; /* 파란색 버튼 */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#send-message-btn:hover {
+    background-color: #2980b9;
+}
+
+#send-message-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}

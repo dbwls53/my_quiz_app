@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>유진 탐구 영역 📝</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>퀴즈 타임!</h1>
+        <div id="start-box">
+            <h2>준비되셨나요?</h2>
+            <p>각 문제는 10초 안에 풀어야 합니다.</p>
+            <button id="start-btn">퀴즈 시작</button>
+        </div>
+
+        <div id="quiz-box" style="display: none;">
+            <div id="timer">남은 시간: 10초</div>
+            <div id="question-count">문제 1 / 5</div>
+            <h2 id="question">문제가 여기에 표시됩니다</h2>
+
+            <div id="options">
+                <button class="option-btn" data-index="0">보기 1</button>
+                <button class="option-btn" data-index="1">보기 2</button>
+                <button class="option-btn" data-index="2">보기 3</button>
+                <button class="option-btn" data-index="3">보기 4</button>
+            </div>
+
+            <div id="short-answer-container" style="display: none;">
+                <input type="text" id="short-answer-input" placeholder="정답을 입력하세요">
+                <button id="submit-answer-btn">제출</button>
+            </div>
+
+            <div id="feedback"></div>
+            <button id="next-btn">다음 문제</button>
+        </div>
+
+        <div id="result-box" style="display: none;">
+            <h2 id="result-title">결과</h2>
+            <p id="result-score"></p>
+            <p id="result-message"></p>
+
+            <div id="message-container">
+                <h3>나에게 하고 싶은 말 남기기 💌</h3>
+                <textarea id="final-message" rows="4" placeholder="여기에 편지를 써주세요!"></textarea>
+                <button id="send-message-btn">메시지 보내기</button>
+            </div>
+            <button id="restart-btn">메인 화면으로</button>
+        </div>
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+
+</html>
