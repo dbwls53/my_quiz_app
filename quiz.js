@@ -1,60 +1,93 @@
 // 퀴즈 데이터
 const quizData = [
     {
-        type: "short",
-        question: "나의 생일은? (숫자 8자리로 입력. 예 : 20000209)",
-        answer: "20031117"
-    },
-    {
-        type: "short",
-        question: "나의 전화번호는? (숫자 11자리로 입력. 예 : 01022554160)",
-        answer: "01074305324"
-    },
-    {
-        type: "short",
-        question: "우리가 처음 사귀기로 한 날짜는? (숫자 8자리로 입력)",
-        answer: "20250801"
+        type: "multiple",
+        question: "내가 안경이나 렌즈를 안 꼈을 때, 나의 시력 상태는?",
+        options: ["-7.0", "-8.0", "-9.0", "-10.0"],
+        answer: 2
     },
     {
         type: "multiple",
-        question: "내가 싫어하는 음식은?",
-        options: ["마라탕", "우육면", "오돌뼈", "오이"],
-        answer : 2
+        question: "내가 제일 좋아하는 고기 굽기 정도는?",
+        options: ["레어", "미디움 레어", "미디움", "웰던"],
+        answer: 0
     },
     {
         type: "multiple",
-        question: "내가 외출 준비할 때 가장 오래 걸리는 단계는?",
-        options: ["씻기", "옷 고르기", "화장하기", "짐챙기기"],
-        answer : 1
+        question: "내가 생각하는 우리의 가장 이상적인 데이트는?",
+        options: ["활동적인 액티비티", "하루종일 호캉스", "맛집 탐방", "심야 영화 보기"],
+        answer: 2
     },
     {
         type: "multiple",
-        question: "내가 세상에서 제일 무서워하는 것은?",
-        options: ["벌레", "귀신", "오빠의 침묵", "높은 곳"],
-        answer : 1
+        question: "다시 태어난다면 내가 되고 싶은 동물은?",
+        options: ["강아지", "고양이", "새", "판다"],
+        answer: 1
+    },
+    {
+        type: "multiple",
+        question: "내가 영화관에서 가장 좋아하는 팝콘 맛은?",
+        options: ["고소한맛", "달콤한맛(카라멜)", "어니언맛", "치즈맛"],
+        answer: 1
+    },
+    {
+        type: "multiple",
+        question: "내가 좋아하는 계절 순서대로 맞는 것은?",
+        options: ["봄-여름-가을-겨울", "가을-봄-겨울-여름", "여름-가을-봄-겨울", "겨울-봄-가을-여름"],
+        answer: 1
+    },
+    {
+        type: "multiple",
+        question: "내가 스트레스를 받았을 때 푸는 가장 선호하는 방법은?",
+        options: ["잠자기", "매운 거 먹기", "쇼핑하기", "오빠한테 조잘조잘 말하기"],
+        answer: 3
+    },
+    {
+        type: "multiple",
+        question: "내가 가장 좋아하는 붕어빵 부위는?",
+        options: ["머리", "등", "꼬리", "상관없음"],
+        answer: 2
+    },
+    {
+        type: "multiple",
+        question: "내가 더 못 참는 상황은?",
+        options: ["배고픈데 줄 서야 함", "졸린데 잠 못 잠", "더운데 에어컨 없음", "심심한데 할 거 없음"],
+        answer: 3
+    },
+    {
+        type: "multiple",
+        question: "오빠가 나에게 준 첫 번째 꽃다발의 주된 꽃 종류는?",
+        options: ["수국", "메리골드", "거베라", "해바라기"],
+        answer: 2
+    },
+    {
+        type: "multiple",
+        question: "내 얼굴에서 점이 있는 위치 중 틀린 것은?",
+        options: ["왼쪽 눈 밑", "오른쪽 눈 밑", "코 끝","입술 아래"],
+        answer: 0
+    },
+    {
+        type: "multiple",
+        question: "우리가 수원에서 갔던 식당의 이름은?",
+        options: ["김경자소문난대구왕뽈찜", "김경자소문난왕대구뽈찜", "소문난김경자대구왕뽈찜", "소문난김경자왕대구뽈찜"],
+        answer: 0
     },
     {
         type: "short",
-        question: "내가 세상에서 가장 자신 있게 만들 수 있는 요리는?",
-        answer: "에그인헬"
-    },
-    {
-        type: "multiple",
-        question: "내가 가장 좋아하는 연락 수단은?",
-        options: ["카톡", "통화", "영상통화", "만나서 말하기"],
-        answer : 3
+        question: "우리가 처음으로 같이 먹은 음식은? (예: 삼겹살)",
+        answer: "김치찌개"
     },
     {
         type: "short",
-        question: "내가 생각하는 나의 매력 포인트 1위는 어디일까?",
-        answer: "눈"
+        question: "우리의 첫 커플템은?",
+        answer: "보조배터리"
     },
     {
-        type: "multiple",
-        question: "내가 편의점에서 딱 하나만 고를 수 있다면?",
-        options: ["뿌셔뿌셔", "자일리톨껌", "불닭볶음면", "여신마라샹궈"],
-        answer : 3
+        type: "short",
+        question: "오빠가 이 퀴즈를 다 풀고 나서 나에게 해줬으면 하는 행동은?",
+        answer: "포옹"
     }
+    
 ];
 
 
@@ -62,7 +95,7 @@ const quizData = [
 let currentQuestion = 0
 let score = 0
 let timerInterval; // 타이머를 담을 변수
-let timeLeft = 10; // 10초 설정
+let timeLeft = 15; // 15초 설정
 
 // DOM 요소 선택
 const questionCount = document.querySelector("#question-count")
@@ -116,7 +149,7 @@ function showQuestion() {
     // 타이머 초기화 및 재시작
     clearInterval(timerInterval);
     timerDisplay.classList.remove("timer-critical"); 
-    timeLeft = 10;
+    timeLeft = 15;
     timerDisplay.textContent = `남은 시간: ${timeLeft}초`;
     timerDisplay.style.color = "#f1c40f"; 
     startTimer();
@@ -124,43 +157,61 @@ function showQuestion() {
 
 // 정답을 확인하는 함수
 function checkAnswer(userAnswer) {
-    clearInterval(timerInterval); 
-    timerDisplay.classList.remove("timer-critical"); 
+    // [가드 로직] 이미 채점이 끝났다면 무시 (이전 단계에서 추가한 부분)
+    if (nextBtn.style.display === "block") {
+        return;
+    }
+
+    clearInterval(timerInterval);
+    timerDisplay.classList.remove("timer-critical");
 
     let current = quizData[currentQuestion];
     let isCorrect = false;
 
-    // 1. 정답 판별 로직
-    if (userAnswer === -1) {
-        // 시간 초과
-        isCorrect = false;
-    } else if (current.type === "short") {
-        // 주관식 정답 비교 (양옆 공백 제거 및 대문자로 통일해서 비교)
-        let formattedUserAnswer = String(userAnswer).trim().toUpperCase();
-        let formattedCorrectAnswer = String(current.answer).trim().toUpperCase();
-        
-        if (formattedUserAnswer === formattedCorrectAnswer) {
-            isCorrect = true;
-        }
+    // 1. [수정] 주관식/객관식 통합 채점 및 UI 처리 로직
+
+    if (current.type === "short") {
+        // === 주관식 처리 ===
         shortAnswerInput.disabled = true; // 입력 막기
         submitAnswerBtn.disabled = true; // 버튼 막기
-    } else if (current.type === "multiple") {
-        // 객관식 정답 비교
-        if (userAnswer === current.answer) {
-            isCorrect = true;
+
+        if (userAnswer === -1) {
+            // 시간 초과
+            isCorrect = false;
+        } else {
+            // 정답 비교 (양옆 공백 제거 및 대문자로 통일해서 비교)
+            let formattedUserAnswer = String(userAnswer).trim().toUpperCase();
+            let formattedCorrectAnswer = String(current.answer).trim().toUpperCase();
+            if (formattedUserAnswer === formattedCorrectAnswer) {
+                isCorrect = true;
+            }
         }
+    } else if (current.type === "multiple") {
+        // === 객관식 처리 ===
         
-        // 버튼 비활성화 및 색상 처리
+        // [핵심 수정] 시간 초과든 오답이든, 객관식이라면 무조건 버튼 비활성화 및 정답 표시
         optionButtons.forEach(function(button) {
             button.classList.add("disabled");
         });
+        
+        // 무조건 정답 버튼에 'correct' 클래스 추가
         optionButtons[current.answer].classList.add("correct");
-        if (!isCorrect && userAnswer !== -1) {
-            optionButtons[userAnswer].classList.add("wrong");
+
+        if (userAnswer === -1) {
+            // 시간 초과
+            isCorrect = false;
+        } else {
+            // 정답 비교
+            if (userAnswer === current.answer) {
+                isCorrect = true;
+            } else {
+                // 오답을 선택했다면 해당 버튼에 'wrong' 클래스 추가
+                optionButtons[userAnswer].classList.add("wrong");
+            }
         }
     }
 
-    // 2. 피드백 메시지 표시 로직
+    // 2. 피드백 메시지 표시 로직 (기존과 동일)
     if (isCorrect) {
         score = score + 1;
         feedback.textContent = "정답입니다!";
@@ -190,7 +241,7 @@ function showResult() {
     let percentage = (score / quizData.length) * 100
 
     if (percentage === 100) {
-        resultMessage.textContent = "100점 만점에 100점! 💯 나를 너무 잘 알아서 감동이야 ❤️"
+        resultMessage.textContent = "100점 만점에 100점! 💯 우리 앞으로의 100년도 이 점수처럼 완벽하고 행복하게 보내자 ❤️"
     } else if (percentage >= 80) {
         resultMessage.textContent = "아쉽게 만점은 놓쳤지만 합격 목걸이는 쥐어드립니다~ 🏅"
     } else if (percentage >= 60) {
